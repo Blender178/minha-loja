@@ -1,0 +1,647 @@
+/* Estilos Gerais */
+:root {
+    --primary-color: #953773;
+    --secondary-color: #6c757d;
+    --success-color: #23801a;
+    --danger-color: #dc3545;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --warning-color: #FFA102;
+    --bs-roxo: #953773 !important;
+}
+
+/* Largura maior do campo de busca no header (desktop) */
+@media (min-width: 992px) {
+    #search-input-desktop {
+        width: 360px !important;
+        max-width: 100%;
+        padding-left: 30px;
+    }
+}
+
+/* Estilos do Header */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+    box-shadow: 0 1px 1px #d5d5d5;
+    background-color: #ffc107 !important;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: light;
+    color: #000000 !important;
+}
+
+@media (max-width: 991px) {
+    .navbar-brand {
+        font-size: 1.25rem;
+    }
+    
+    header .btn-sm {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+    }
+    
+    #searchCollapse {
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding-top: 0.5rem;
+    }
+    
+    #searchCollapse .input-group {
+        margin: 0;
+    }
+}
+
+/* Ajustes para telas muito pequenas */
+@media (max-width: 360px) {
+    .navbar-brand {
+        font-size: 1.1rem;
+    }
+    
+    header .container {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* Estilos para o footer */
+footer {
+    margin-top: auto;
+    background-color: var(--dark-color);
+}
+
+footer .social-links a {
+    font-size: 1.2rem;
+    transition: opacity 0.3s;
+}
+
+footer .social-links a:hover {
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+/* Estilos para a paginação */
+.pagination {
+    margin-bottom: 2rem;
+}
+
+.page-link {
+    color: var(--primary-color);
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+}
+
+.page-link:hover {
+    color: #e6b62f;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+}
+
+.page-item.active .page-link {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #fff;
+}
+
+.page-item.disabled .page-link {
+    color: #6c757d;
+    pointer-events: none;
+    background-color: #fff;
+    border-color: #dee2e6;
+}
+
+/* Paginação customizada */
+.pagination.pagination-custom .page-link {
+    border-radius: 8px;
+    margin: 0 4px;
+    min-width: 40px;
+    text-align: center;
+}
+
+.pagination.pagination-custom .page-item.active .page-link {
+    background-color: #fea021; /* cor do header */
+    border-color: #fea021;
+    color: #000;
+    font-weight: 600;
+}
+
+.pagination.pagination-custom .page-link:hover {
+    background-color: #fff7e0;
+    border-color: #ffd27a;
+    color: #000;
+}
+
+.pagination-info {
+    font-size: 0.9rem;
+}
+
+/* Garantir que imagens não ultrapassem os limites */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Carrinho Lateral */
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100vh;
+    background-color: white;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1050;
+    transition: right 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-sidebar.active {
+    right: 0;
+}
+
+.cart-header {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.cart-item {
+    display: flex;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-right: 1rem;
+    border-radius: 4px;
+}
+
+.cart-item-details {
+    flex: 1;
+}
+
+.cart-item-title {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.cart-item-price {
+    color: #6a6a6a !important;
+    font-weight: 600;
+}
+
+.cart-item-size {
+    font-size: 0.85rem;
+    color: var(--secondary-color);
+}
+
+.cart-item-quantity {
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.cart-item-quantity button {
+    background: none;
+    border: 1px solid #ddd;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.cart-item-quantity input {
+    width: 40px;
+    text-align: center;
+    border: 1px solid #ddd;
+    margin: 0 5px;
+}
+
+.cart-item-remove {
+    color: rgb(0, 0, 0) !important;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+}
+
+.cart-footer {
+    padding: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* Overlay de Fundo */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1040;
+    display: none;
+}
+
+.overlay.active {
+    display: block;
+}
+
+/* Cards de Produtos */
+.product-card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    max-width: 100%;
+    position: relative;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para imagens no modal */
+#modal-product-image {
+    max-width: 100%;
+    max-height: 300px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* Container para imagens de produtos */
+.product-image-container {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    background-color: #ffffff;
+}
+
+/* Estilos para imagens de produtos */
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit:scale-down ;
+    display: block;
+}
+
+.product-details {
+    padding: 1rem;
+}
+
+.product-title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.product-price {
+    color:#6a6a6a !important;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.product-category {
+    display: inline-block;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .cart-sidebar {
+        width: 100%;
+        right: -100%;
+    }
+    
+    .product-card {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Estilos para o checkout */
+#delivery-fields {
+    transition: all 0.3s ease;
+}
+
+#order-summary {
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 8px;
+}
+
+.summary-item {
+    padding: 8px 0;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.summary-item:last-child {
+    border-bottom: none;
+}
+
+#order-summary small {
+    font-size: 0.85em;
+}
+
+.summary-totals {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 2px solid #dee2e6;
+}
+
+.summary-totals .row {
+    margin-bottom: 8px;
+}
+
+.summary-totals .total {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.summary-item:last-child {
+    border-bottom: none;
+}
+
+/* Estilos para os filtros */
+.filter-btn {
+    transition: all 0.2s ease;
+    border: #e4dee3 1px solid !important;
+    color: #000000 !important;
+    background: #fbf8ff !important;
+}
+
+.filter-btn:hover {
+    transition: all 0.2s ease;
+    background-color: #ffc107 !important;
+    color: rgb(0, 0, 0) !important
+}
+
+.filter-btn.active {
+    background-color: #ffc107 !important;
+    color: rgb(0, 0, 0) !important;
+    border: #ffc107 1px solid !important;
+}
+
+/* Animação de carregamento */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Estilos para o botão de checkout */
+#checkout-button {
+    background-color: #2a9c20 !important;
+    color: white;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1em;
+    font-weight: normal;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+#checkout-button:hover {
+    background-color: #23801a !important;
+    cursor: pointer;
+}
+
+#checkout-button:disabled {
+    background-color: var(--secondary-color);
+    cursor: not-allowed;
+}
+
+#checkout-form .form-control:hover{
+    background-color: #f5f5f5;
+    color: rgb(0, 0, 0);
+}
+
+#search-button-desktop{
+    background-color: #232323 !important;
+    color: rgb(255, 255, 255) !important;
+    border: 1px solid #b64d90 !important;
+    transition: all 0.2s ease;
+}
+
+#search-button-desktop:hover{
+    background-color:#b64d90!important;
+    color: white !important;
+    border: 1px solid #953773 !important;
+    transition: all 0.2s ease;
+}
+
+#cart-toggle{
+    background-color: #212529 !important;
+    color: rgb(255, 255, 255) !important;
+    border: 1px solid #000000 !important;
+    transition: all 0.2s ease;
+}
+
+#cart-toggle-mobile{
+    background-color: #fcf7f8 !important;
+    color: rgb(0, 0, 0) !important;
+    border: 1px solid #ffffff !important;
+    transition: all 0.2s ease;
+}
+
+#add-to-cart-btn{
+    background-color: #2a9c20 !important;
+    color: rgb(255, 255, 255) !important;
+    border: 1px solid #ffffff !important;
+    transition: all 0.2s ease;
+    padding: 10px !important;
+}
+
+#add-to-cart-btn:hover{
+    background-color: #23801a !important;
+    color: white !important;
+    border: 1px solid #23801a !important;
+    transition: all 0.2s ease;
+}
+
+/* Botão WhatsApp Flutuante */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    background-color: #25D366;
+    color: #fff !important;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 1070;
+    text-decoration: none;
+}
+
+.whatsapp-float i {
+    font-size: 28px;
+    line-height: 1;
+}
+
+.whatsapp-float:hover {
+    background-color: #1ebe5d;
+}
+
+@media (max-width: 576px) {
+    .whatsapp-float {
+        bottom: 20px;
+    }
+}
+
+.form-check{
+    background-color: transparent;
+    color: #212529 !important;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    padding: 0 !important;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 300;
+    margin: 6px 0;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Radio inputs acessíveis (visualmente ocultos) */
+.form-check-input{
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+    pointer-events: none;
+}
+
+/* Cartão clicável para a opção */
+.form-check-label{
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #e2e3e5 !important;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #212529;
+}
+
+.form-check-label:hover{
+    background-color: #fafafa;
+    border-color: #d5d7da !important;
+}
+
+/* Estado focado pelo teclado */
+.form-check-input:focus + .form-check-label{
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.08);
+}
+
+/* Estado selecionado */
+.form-check-input:checked + .form-check-label{
+    border-color: #212529 !important;
+    background-color: #ffffff;
+    font-weight: 600;
+}
+
+/* Estado desabilitado */
+.form-check-input:disabled + .form-check-label{
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Personalização do select no checkout */
+#delivery-fields .form-select{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #fff;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath fill='%23666' d='M5.5 7l4.5 6 4.5-6z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px 16px;
+    padding-right: 40px;
+    border-radius: 8px;
+    border: 1px solid #e2e3e5;
+}
+
+#delivery-fields .form-select:focus{
+    border-color: #212529;
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.08);
+}
+
