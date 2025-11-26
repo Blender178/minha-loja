@@ -1,4 +1,4 @@
-<?php
+<?php require_once __DIR__ . '/../config.php';
 // Global app configuration and security bootstrap
 
 // Load .env
