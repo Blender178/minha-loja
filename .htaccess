@@ -1,0 +1,44 @@
+# Disable directory listings
+Options -Indexes
+
+# Enable URL rewriting
+RewriteEngine On
+
+# Block access to hidden files (dotfiles) like .env, .git, etc.
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
+
+# Block direct access to config and database dumps
+<FilesMatch "(^|/)(config\.php|database\.sql)$">
+  Require all denied
+</FilesMatch>
+
+# Block documentation files from the web
+<FilesMatch "\.(md|markdown|txt)$">
+  Require all denied
+</FilesMatch>
+
+# Block access to the _archive folder entirely
+RewriteRule ^_archive/ - [F,L]
+
+# Basic security headers
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
+  Header always set Referrer-Policy "no-referrer-when-downgrade"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+  Header unset X-Powered-By
+</IfModule>
+
+# Cache static assets conservatively
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/webp "access plus 30 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+  ExpiresByType font/woff2 "access plus 30 days"
+</IfModule>
